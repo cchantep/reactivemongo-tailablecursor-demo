@@ -7,13 +7,15 @@
 			var wsUri = "ws://localhost:9000/watchCollection";
 			var output;
 			function init() {
-				output = document.getElementById("output"); testWebSocket();
+			  output = document.getElementById("output");
+                          testWebSocket();
 				document.getElementById("message").addEventListener("submit", function(evt) {
-					var title = document.getElementById("title")
-					var content = document.getElementById("content")
-					console.log(title.value, content.value)
-					websocket.send(JSON.stringify({title: title.value, content: content.value}))
-					evt.stopPropagation()
+					var title = document.getElementById("title");
+					var content = document.getElementById("content");
+					console.log("Message: " + title.value + ", " + content.value);
+
+					websocket.send(JSON.stringify({title: title.value, content: content.value}));
+					evt.stopPropagation();
 					evt.preventDefault()
 				})
 			}
